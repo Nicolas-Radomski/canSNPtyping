@@ -85,8 +85,8 @@ AE014291	3256	G	A		A		A		A		G
 AE014291	3609	C	C		C		C		C		C
 AE014291	3871	C	C		C		C		C		C
 AE014291	3934	C	T		T		T		T		C
-AE014291	4219	T	C		C		C		C		T
-AE014291	4223	G	C		C		C		C		G
+**AE014291	4219	T	C		C		C		C		T**
+**AE014291	4223	G	C		C		C		C		G**
 AE014291	4498	A	C		C		C		C		A
 ```
 ## Nucleotide profiles of SNPs for each chromosome excluding hotspots of SNPs (pointSNPselector/chromoI-snps-retained-sorted-header.tsv)
