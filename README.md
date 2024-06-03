@@ -13,22 +13,39 @@ The workflow is adapted from recommendations of the hansel tool and implies tool
 # Case study
 The example below aims at building schemes of canSNPs for Brucella chromosomes I (reference: AE014291.4) and/or II (reference: AE014292.2).
 # Examples of commands
-## pointSNPselector.sh (arg1: input, arg2: output prefix, arg3: chromosome size, arg4: size of kmer sequences up and downstream of canSNPs)
+## pointSNPselector.sh
+- arg1: input
+- arg2: output prefix
+- arg3: chromosome size
+- arg4: size of kmer sequences up and downstream of canSNPs
 ```
 sh pointSNPselector.sh snippy/chromoI.tab chromoI 2107794 16
 sh pointSNPselector.sh snippy/chromoII.tab chromoII 1207381 16
 ```
-## feht (-i: input metadata, -d: input SNPs, -f: specific SNPs, -m: SNP mode, >: output)
+## feht
+- -i: input metadata
+- -d: input SNPs
+- -f: specific SNPs
+- -m: SNP mode
+- >: output
 ```
 feht -i feht/metadata.tsv -d pointSNPselector/chromoI-snps-retained-sorted-header.tsv -f 1 -m snp > feht/chromoI-cansnps.tsv
 feht -i feht/metadata.tsv -d pointSNPselector/chromoII-snps-retained-sorted-header.tsv -f 1 -m snp > feht/chromoII-cansnps.tsv
 ```
-## canSNPextractor.sh (arg1: input, arg2: output prefix)
+## canSNPextractor.sh
+- arg1: input
+- arg2: output prefix
 ```
 sh canSNPextractor.sh feht/chromoI-cansnps.tsv chromoI
 sh canSNPextractor.sh feht/chromoII-cansnps.tsv chromoII
 ```
-## kmerDesigner.sh (arg1: input, arg2: output prefix, arg3: randomly selected positive genotypes per node of interest, arg4: size of kmer sequences up and downstream of canSNPs, arg5: chromosome GenBank identifier, arg6: additional digit to position to merge schemes from different chromosomes)
+## kmerDesigner.sh
+- arg1: input
+- arg2: output prefix
+- arg3: randomly selected positive genotypes per node of interest
+- arg4: size of kmer sequences up and downstream of canSNPs
+- arg5: chromosome GenBank identifier
+- arg6: additional digit to position to merge schemes from different chromosomes
 ```
 sh kmerDesigner.sh canSNPextractor/chromoI-genotypes-all-interest-canSNPs.tsv chromoI 4 16 AE014291.4 10000000
 sh kmerDesigner.sh canSNPextractor/chromoII-genotypes-all-interest-canSNPs.tsv chromoII 4 16 AE014292.2 20000000
@@ -37,7 +54,13 @@ sh kmerDesigner.sh canSNPextractor/chromoII-genotypes-all-interest-canSNPs.tsv c
 ```
 cat kmerDesigner/chromoI-schema.db kmerDesigner/chromoII-schema.db > kmerDesigner/chromoI-II-schema.db
 ```
-## hansel (-s: input scheme, --vv: verbosity level, -t: threads, -o: typing output, -O: match output, -D: input format)
+## hansel
+- -s: input scheme
+- --vv: verbosity level
+- -t: threads
+- -o: typing output
+- -O: match output
+- -D: input format
 ```
 hansel -s kmerDesigner/chromoI-schema.db -vv -t 20 -o hansel/chromoI-results-fastq.tab -O hansel/chromoI-match_results-fastq.tab -D fastq
 hansel -s kmerDesigner/chromoI-schema.db -vv -t 20 -o hansel/chromoI-results-fastq.tab -O hansel/chromoI-match_results-fastq.tab -D fastq
