@@ -14,38 +14,38 @@ The workflow is adapted from recommendations of the hansel tool and implies tool
 The example below aims at building schemes of canSNPs for Brucella chromosomes I (reference: AE014291.4) and/or II (reference: AE014292.2).
 # Examples of commands
 ## pointSNPselector.sh (arg1: input, arg2: output prefix, arg3: chromosome size, arg4: size of kmer sequences up and downstream of canSNPs)
-'''
+```
 sh pointSNPselector.sh snippy/chromoI.tab chromoI 2107794 16
 sh pointSNPselector.sh snippy/chromoII.tab chromoII 1207381 16
-'''
+```
 ## feht (-i: input metadata, -d: input SNPs, -f: specific SNPs, -m: SNP mode, >: output)
-'''
+```
 feht -i feht/metadata.tsv -d pointSNPselector/chromoI-snps-retained-sorted-header.tsv -f 1 -m snp > feht/chromoI-cansnps.tsv
 feht -i feht/metadata.tsv -d pointSNPselector/chromoII-snps-retained-sorted-header.tsv -f 1 -m snp > feht/chromoII-cansnps.tsv
-'''
+```
 ## canSNPextractor.sh (arg1: input, arg2: output prefix)
-'''
+```
 sh canSNPextractor.sh feht/chromoI-cansnps.tsv chromoI
 sh canSNPextractor.sh feht/chromoII-cansnps.tsv chromoII
-'''
+```
 ## kmerDesigner.sh (arg1: input, arg2: output prefix, arg3: randomly selected positive genotypes per node of interest, arg4: size of kmer sequences up and downstream of canSNPs, arg5: chromosome GenBank identifier, arg6: additional digit to position to merge schemes from different chromosomes)
-'''
+```
 sh kmerDesigner.sh canSNPextractor/chromoI-genotypes-all-interest-canSNPs.tsv chromoI 4 16 AE014291.4 10000000
 sh kmerDesigner.sh canSNPextractor/chromoII-genotypes-all-interest-canSNPs.tsv chromoII 4 16 AE014292.2 20000000
-'''
+```
 ## merging of schenes from chromosomes I and II
-'''
+```
 cat kmerDesigner/chromoI-schema.db kmerDesigner/chromoII-schema.db > kmerDesigner/chromoI-II-schema.db
-'''
+```
 ## hansel (-s: input scheme, --vv: verbosity level, -t: threads, -o: typing output, -O: match output, -D: input format)
-'''
+```
 hansel -s kmerDesigner/chromoI-schema.db -vv -t 20 -o hansel/chromoI-results-fastq.tab -O hansel/chromoI-match_results-fastq.tab -D fastq
 hansel -s kmerDesigner/chromoI-schema.db -vv -t 20 -o hansel/chromoI-results-fastq.tab -O hansel/chromoI-match_results-fastq.tab -D fastq
 hansel -s kmerDesigner/chromoI-II-schema.db -vv --threads 20 -o hansel/chromoI-II-results-fastq.tab -O hansel/chromoI-II-match_results-fastq.tab -D fastq
-'''
+```
 # Expected input and output
 ## Nucleotide profiles of SNPs for each chromosome (snippy/chromoI.tab)
-'''
+```
 CHR		POS	REF	SRR1371301	SRR1371327	SRR1371373	SRR1371384	SRR5207310
 AE014291	23	C	C		C		C		C		C
 AE014291	330	T	T		T		T		T		T
@@ -64,9 +64,9 @@ AE014291	3934	C	T		T		T		T		C
 AE014291	4219	T	C		C		C		C		T
 AE014291	4223	G	C		C		C		C		G
 AE014291	4498	A	C		C		C		C		A
-'''
+```
 ## Nucleotide profiles of SNPs for each chromosome excluding hotspots of SNPs (pointSNPselector/chromoI-snps-retained-sorted-header.tsv)
-'''
+```
 	SRR1371301	SRR1371327	SRR1371373	SRR1371384	SRR5207310
 23	C		C		C		C		C
 330	T		T		T		T		T
@@ -83,9 +83,9 @@ AE014291	4498	A	C		C		C		C		A
 3871	C		C		C		C		C
 3934	T		T		T		T		C
 4498	C		C		C		C		A
-'''
+```
 ## Metadata defining groups of interest (feht/metadata.tsv)
-'''
+```
 Strain_name	Level_0	Level_1	Level_2
 SRR5207310	1	1.1	NA
 SRR5207315	1	1.1	NA
@@ -107,9 +107,9 @@ SRR6958002	2	2.2	NA
 SRR6958007	2	2.2	NA
 SRR6958009	2	2.2	NA
 SRR6957952	2	2.2	NA
-'''
+```
 ## Tables of all specific SNPs of each defined groups (feht/chromoI-cansnps.tsv)
-'''
+```
 [#-
 Group1 category: Level_2 Group1: 2.1.1
 Group2 category: Level_2 Group2: 2.1.2
@@ -120,9 +120,9 @@ Name	GroupOne (+)	GroupOne (-)	GroupTwo (+)	GroupTwo (-)	pValue	Ratio
 1557985_g	4	0	0	1	1.0	1.0
 1296954_c	0	4	1	0	1.0	-1.0
 1230711_t	4	0	0	1	1.0	1.0
-'''
+```
 ## Positive and negative genotypes of all canSNPs (canSNPextractor/chromoI-genotypes-all-interest-canSNPs.tsv)
-'''
+```
 Genotype	SNP Location	Positive Base	Negative Base
 1	1167	C	T
 1	2061	A	G
@@ -144,9 +144,9 @@ not2.2	2099716	G	T
 not2.2	2101069	G	A
 not2.2	2106119	T	C
 not2.2	2106619	T	C
-'''
+```
 ## canSNP scheme organized in the form of kmers (kmerDesigner/chromoI-schema.db)
-'''
+```
 Genotype	SNP Location	Positive Base	Negative Base
 >10186337-1
 CCGGGTCTCAAAGGCCGCCGTTTTCGGCCCACC
@@ -169,9 +169,9 @@ GTGCAGCAGCATCCGCCGGATTTGTCGACTCTA
 TCACCAGGCTTGCCACACAGAACCTCACTGATT
 >negative11915898-2.2
 GAAAACGTGGTGATGACGCGCACTTTCTCGAAG
-'''
+```
 ## canSNP typing (hansel/chromoI-results-fastq.tab)
-'''
+```
 						prediction	prediction	prediction
 sample		brucella	expectation	chromosome I	chromosome II	chromosome I and II
 SRR6957988	melitensis	2; 2.2		2; 2.2		2; 2.2		2; 2.2
@@ -194,8 +194,7 @@ SRR5207328	suis biovar 1	1; 1.1		1; 1.1		1; 1.1		1; 1.1
 SRR5207321	suis biovar 1	1; 1.1		1; 1.1		1; 1.1		1; 1.1
 SRR5207315	suis biovar 1	1; 1.1		1; 1.1		1; 1.1		1; 1.1
 SRR5207310	suis biovar 1	1; 1.1		1; 1.1		1; 1.1		1; 1.1
-
-'''
+```
 # Illustration
 ![workflow figure](https://github.com/Nicolas-Radomski/canSNPtyping/blob/main/illustration.png)
 # Reference
