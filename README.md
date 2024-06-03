@@ -1,9 +1,5 @@
 $${\color{red}Source \space codes \space will \space be \space provided \space after \space publication \space in \space a \space peer-reviewed \space journal}$$
 
-
-$${\color{red}Red}$$
-
-
 # Usage
 The repository canSNPtyping provides three Bash scripts called pointSNPselector.sh, canSNPextractor.sh and kmerDesigner.sh to build schemes of canonical single-nucleotide polymorphisms (canSNPs) based on feht output and compatible with Hansel input.
 - pointSNPselector.sh: exclusion of SNP hotspots
