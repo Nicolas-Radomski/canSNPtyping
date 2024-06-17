@@ -31,8 +31,8 @@ sh pointSNPselector.sh snippy/chromoII.tab chromoII 1207381 16
 - -m: SNP mode
 - \>: output
 ```
-feht -i feht/metadata.tsv -d pointSNPselector/chromoI-snps-retained-sorted-header.tsv -f 1 -m snp > feht/chromoI-cansnps.tsv
-feht -i feht/metadata.tsv -d pointSNPselector/chromoII-snps-retained-sorted-header.tsv -f 1 -m snp > feht/chromoII-cansnps.tsv
+feht -i feht/metadata.tsv -d pointSNPselector/chromoI-point-SNPs-retained-profiles.tsv -f 1 -m snp > feht/chromoI-cansnps.tsv
+feht -i feht/metadata.tsv -d pointSNPselector/chromoII-point-SNPs-retained-profiles.tsv -f 1 -m snp > feht/chromoII-cansnps.tsv
 ```
 ## canSNPextractor.sh
 - arg1: input
