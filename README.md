@@ -31,8 +31,8 @@ sh dispersedSNPselector.sh snippy/chromoII.tab chromoII 1207381 16
 - -m: SNP mode
 - \>: output
 ```
-feht -i feht/metadata.tsv -d dispersedSNPselector/chromoI-point-SNPs-retained-profiles.tsv -f 1 -m snp > feht/chromoI-cansnps.tsv
-feht -i feht/metadata.tsv -d dispersedSNPselector/chromoII-point-SNPs-retained-profiles.tsv -f 1 -m snp > feht/chromoII-cansnps.tsv
+feht -i feht/metadata.tsv -d dispersedSNPselector/chromoI-SNPs-retained-trimmed-profiles.tsv -f 1 -m snp > feht/chromoI-cansnps.tsv
+feht -i feht/metadata.tsv -d dispersedSNPselector/chromoII-SNPs-retained-trimmed-profiles.tsv -f 1 -m snp > feht/chromoII-cansnps.tsv
 ```
 ## canSNPextractor.sh
 - arg1: input
@@ -90,7 +90,7 @@ AE014291	4219	T	C		C		C		C		T
 AE014291	4223	G	C		C		C		C		G
 AE014291	4498	A	C		C		C		C		A
 ```
-## Nucleotide profiles of SNPs for each chromosome excluding hotspots of SNPs (dispersedSNPselector/chromoI-snps-retained-sorted-header.tsv)
+## Nucleotide profiles of SNPs for each chromosome excluding hotspots of SNPs (dispersedSNPselector/chromoI-SNPs-retained-trimmed-profiles.tsv)
 ```
 	SRR1371301	SRR1371327	SRR1371373	SRR1371384	SRR5207310
 23	C		C		C		C		C
