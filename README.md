@@ -1,8 +1,8 @@
 $${\color{red}Source \space codes \space will \space be \space provided \space after \space publication \space in  \space a \space peer \space reviewed \space journal}$$
 
 # Usage
-The repository canSNPtyping provides three Bash scripts called pointSNPselector.sh, canSNPextractor.sh and kmerDesigner.sh to build schemes of canonical single-nucleotide polymorphisms (canSNPs) based on feht output and compatible with Hansel input.
-- pointSNPselector.sh: exclusion of SNP hotspots
+The repository canSNPtyping provides three Bash scripts called dispersedSNPselector.sh, canSNPextractor.sh and kmerDesigner.sh to build schemes of canonical single-nucleotide polymorphisms (canSNPs) based on feht output and compatible with Hansel input.
+- dispersedSNPselector.sh: exclusion of SNP hotspots
 - canSNPextractor.sh: extraction of canSNPs
 - kmerDesigner.sh: design of kmers harboring selected canSNPs
 # Workflow dependencies
@@ -15,14 +15,14 @@ The workflow is adapted from recommendations of the hansel tool and implies tool
 # Case study
 The example below aims at building schemes of canSNPs for Brucella chromosomes I (reference: AE014291.4) and/or II (reference: AE014292.2).
 # Examples of commands
-## pointSNPselector.sh
+## dispersedSNPselector.sh
 - arg1: input
 - arg2: output prefix
 - arg3: chromosome size
 - arg4: size of kmer sequences up and downstream of canSNPs
 ```
-sh pointSNPselector.sh snippy/chromoI.tab chromoI 2107794 16
-sh pointSNPselector.sh snippy/chromoII.tab chromoII 1207381 16
+sh dispersedSNPselector.sh snippy/chromoI.tab chromoI 2107794 16
+sh dispersedSNPselector.sh snippy/chromoII.tab chromoII 1207381 16
 ```
 ## feht
 - -i: input metadata
@@ -31,8 +31,8 @@ sh pointSNPselector.sh snippy/chromoII.tab chromoII 1207381 16
 - -m: SNP mode
 - \>: output
 ```
-feht -i feht/metadata.tsv -d pointSNPselector/chromoI-point-SNPs-retained-profiles.tsv -f 1 -m snp > feht/chromoI-cansnps.tsv
-feht -i feht/metadata.tsv -d pointSNPselector/chromoII-point-SNPs-retained-profiles.tsv -f 1 -m snp > feht/chromoII-cansnps.tsv
+feht -i feht/metadata.tsv -d dispersedSNPselector/chromoI-point-SNPs-retained-profiles.tsv -f 1 -m snp > feht/chromoI-cansnps.tsv
+feht -i feht/metadata.tsv -d dispersedSNPselector/chromoII-point-SNPs-retained-profiles.tsv -f 1 -m snp > feht/chromoII-cansnps.tsv
 ```
 ## canSNPextractor.sh
 - arg1: input
@@ -90,7 +90,7 @@ AE014291	4219	T	C		C		C		C		T
 AE014291	4223	G	C		C		C		C		G
 AE014291	4498	A	C		C		C		C		A
 ```
-## Nucleotide profiles of SNPs for each chromosome excluding hotspots of SNPs (pointSNPselector/chromoI-snps-retained-sorted-header.tsv)
+## Nucleotide profiles of SNPs for each chromosome excluding hotspots of SNPs (dispersedSNPselector/chromoI-snps-retained-sorted-header.tsv)
 ```
 	SRR1371301	SRR1371327	SRR1371373	SRR1371384	SRR5207310
 23	C		C		C		C		C
