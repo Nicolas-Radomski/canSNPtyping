@@ -1,10 +1,10 @@
 $${\color{red}Source \space codes \space will \space be \space provided \space after \space publication \space in  \space a \space peer \space reviewed \space journal}$$
 
 # Usage
-The repository canSNPtyping provides three Bash scripts called dispersedSNPselector.sh, canSNPextractor.sh and kmerDesigner.sh to build schemes of canonical single-nucleotide polymorphisms (canSNPs) based on feht output and compatible with Hansel input.
-- dispersedSNPselector.sh: exclusion of SNP hotspots
-- canSNPextractor.sh: extraction of canSNPs
-- kmerDesigner.sh: design of kmers harboring selected canSNPs
+The repository canSNPtyping provides Python (recommended version 3.12) or Bash (tested with Ubuntu 20.04) scripts called dispersedSNPselector, canSNPextractor and kmerDesigner to build schemes of canonical single-nucleotide polymorphisms (canSNPs) based on feht output and compatible with Hansel input.
+- dispersedSNPselector: exclusion of SNP hotspots
+- canSNPextractor: extraction of canSNPs
+- kmerDesigner: design of kmers harboring selected canSNPs
 # Workflow dependencies
 The workflow is adapted from recommendations of the hansel tool and implies tools below (https://bio-hansel.readthedocs.io/en/readthedocs/user-docs/genotyping_schemas.html#creating-a-genotyping-schema).
 - snippy: variant calling (https://github.com/tseemann/snippy)
@@ -15,39 +15,66 @@ The workflow is adapted from recommendations of the hansel tool and implies tool
 # Case study
 The example below aims at building schemes of canSNPs for Brucella chromosomes I (reference: AE014291.4) and/or II (reference: AE014292.2).
 # Examples of commands
-## dispersedSNPselector.sh
-- arg1: input
-- arg2: output prefix
-- arg3: chromosome size
-- arg4: size of kmer sequences up and downstream of canSNPs
+## dispersedSNPselector
+### arguments
+- arg1 (-i): input
+- arg2 (-p): output prefix
+- arg3 (-c): chromosome size
+- arg4 (-n): size of kmer sequences up and downstream of canSNPs
+- arg5 (-nc): no checking of the versions of Python libraries
+### run with Python
+```
+python dispersedSNPselector.py -i snippy/chromoI.tab -p chromoI -c 2107794 -n 16 -nc
+python dispersedSNPselector.py -i snippy/chromoII.tab -p chromoII -c 1207381 -n 16 -nc
+```
+### run with Bash
 ```
 sh dispersedSNPselector.sh snippy/chromoI.tab chromoI 2107794 16
 sh dispersedSNPselector.sh snippy/chromoII.tab chromoII 1207381 16
 ```
 ## feht
-- -i: input metadata
-- -d: input SNPs
-- -f: specific SNPs
-- -m: SNP mode
-- \>: output
+### arguments
+- arg1 (-i): input metadata
+- arg2 (-d): input SNPs
+- arg3 (-f): specific SNPs
+- arg4 (-m): SNP mode
+### run with Bash
 ```
 feht -i feht/metadata.tsv -d dispersedSNPselector/chromoI-SNPs-retained-trimmed-profiles.tsv -f 1 -m snp > feht/chromoI-cansnps.tsv
 feht -i feht/metadata.tsv -d dispersedSNPselector/chromoII-SNPs-retained-trimmed-profiles.tsv -f 1 -m snp > feht/chromoII-cansnps.tsv
 ```
-## canSNPextractor.sh
-- arg1: input
-- arg2: output prefix
+## canSNPextractor
+### arguments
+- arg1 (-i): input
+- arg2 (-p): output prefix
+- arg3 (-nc): no checking of the versions of Python libraries
+### run with Python
+```
+python canSNPextractor.py -i feht/chromoI-cansnps.tsv -p chromoI -nc
+python canSNPextractor.py -i feht/chromoII-cansnps.tsv -p chromoII -nc
+```
+### run with Bash
 ```
 sh canSNPextractor.sh feht/chromoI-cansnps.tsv chromoI
 sh canSNPextractor.sh feht/chromoII-cansnps.tsv chromoII
 ```
-## kmerDesigner.sh
-- arg1: input
-- arg2: output prefix
-- arg3: randomly selected positive genotypes per node of interest
-- arg4: size of kmer sequences up and downstream of canSNPs
-- arg5: chromosome GenBank identifier
-- arg6: additional digit to position to merge schemes from different chromosomes
+## kmerDesigner
+### arguments
+- arg1 (-i): input
+- arg2 (-p): output prefix
+- arg3 (-s): randomly selected positive genotypes per node of interest
+- arg4 (-n): size of kmer sequences up and downstream of canSNPs
+- arg5 (-f or -g): chromosome fasta file path or chromosome GenBank identifier
+- arg6 (-a): additional digit to position to merge schemes from different chromosomes
+- arg7 (-nc): no checking of the versions of Python libraries
+### run with Python
+```
+python kmerDesignerFast.py -i canSNPextractor/chromoI-genotypes-all-interest-canSNPs.tsv -p chromoI -s 4 -n 16 -f reference/AE014291.4.fasta -a 10000000 -nc
+python kmerDesignerFast.py -i canSNPextractor/chromoII-genotypes-all-interest-canSNPs.tsv -p chromoII -s 4 -n 16 -f reference/AE014292.2.fasta -a 20000000 -nc
+python kmerDesigner.py -i canSNPextractor/chromoI-genotypes-all-interest-canSNPs.tsv -p chromoI -s 4 -n 16 -g AE014291.4 -a 10000000 -nc
+python kmerDesigner.py -i canSNPextractor/chromoII-genotypes-all-interest-canSNPs.tsv -p chromoII -s 4 -n 16 -g AE014292.2 -a 20000000 -nc
+```
+### run with Bash
 ```
 sh kmerDesigner.sh canSNPextractor/chromoI-genotypes-all-interest-canSNPs.tsv chromoI 4 16 AE014291.4 10000000
 sh kmerDesigner.sh canSNPextractor/chromoII-genotypes-all-interest-canSNPs.tsv chromoII 4 16 AE014292.2 20000000
@@ -57,12 +84,14 @@ sh kmerDesigner.sh canSNPextractor/chromoII-genotypes-all-interest-canSNPs.tsv c
 cat kmerDesigner/chromoI-schema.db kmerDesigner/chromoII-schema.db > kmerDesigner/chromoI-II-schema.db
 ```
 ## hansel
-- -s: input scheme
-- --vv: verbosity level
-- -t: threads
-- -o: typing output
-- -O: match output
-- -D: input format
+### arguments
+- arg1 (-s): input scheme
+- arg2 (--vv): verbosity level
+- arg3 (-t): threads
+- arg4 (-o): typing output
+- arg5 (-O): match output
+- arg6 (-D): input format
+### run with Bash
 ```
 hansel -s kmerDesigner/chromoI-schema.db -vv -t 20 -o hansel/chromoI-results-fastq.tab -O hansel/chromoI-match_results-fastq.tab -D fastq
 hansel -s kmerDesigner/chromoI-schema.db -vv -t 20 -o hansel/chromoI-results-fastq.tab -O hansel/chromoI-match_results-fastq.tab -D fastq
@@ -227,6 +256,6 @@ Labbé G, Kruczkiewicz P, Robertson J, Mabon P, Schonfeld J, Kein D, Rankin MA, 
 # Please site
 https://github.com/Nicolas-Radomski/canSNPtyping
 # Acknowledgment
-The GENPAT-IZSAM Staff for our discussions aiming at designing workflows
+The GENPAT-IZSAM Staff for our discussions aiming at designing workflows, especially Iolanda Mangone and Pierluigi Castelli for our discussions about the Python syntax.
 # Author
 Nicolas Radomski
