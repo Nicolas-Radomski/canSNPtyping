@@ -34,7 +34,7 @@ conda list
 ## Desactivate the environment after use
 conda deactivate
 # Examples of commands
-## dispersedSNPselector
+## Program dispersedSNPselector
 ### arguments
 - arg1 (-i): input
 - arg2 (-p): output prefix
@@ -51,7 +51,7 @@ python dispersedSNPselector.py -i snippy/chromoII.tab -p chromoII -c 1207381 -n 
 sh dispersedSNPselector.sh snippy/chromoI.tab chromoI 2107794 16
 sh dispersedSNPselector.sh snippy/chromoII.tab chromoII 1207381 16
 ```
-## feht
+## Program feht
 ### arguments
 - arg1 (-i): input metadata
 - arg2 (-d): input SNPs
@@ -62,7 +62,7 @@ sh dispersedSNPselector.sh snippy/chromoII.tab chromoII 1207381 16
 feht -i feht/metadata.tsv -d dispersedSNPselector/chromoI-SNPs-retained-trimmed-profiles.tsv -f 1 -m snp > feht/chromoI-cansnps.tsv
 feht -i feht/metadata.tsv -d dispersedSNPselector/chromoII-SNPs-retained-trimmed-profiles.tsv -f 1 -m snp > feht/chromoII-cansnps.tsv
 ```
-## canSNPextractor
+## Program canSNPextractor
 ### arguments
 - arg1 (-i): input
 - arg2 (-p): output prefix
@@ -77,7 +77,7 @@ python canSNPextractor.py -i feht/chromoII-cansnps.tsv -p chromoII -nc
 sh canSNPextractor.sh feht/chromoI-cansnps.tsv chromoI
 sh canSNPextractor.sh feht/chromoII-cansnps.tsv chromoII
 ```
-## kmerDesigner
+## Program kmerDesigner
 ### arguments
 - arg1 (-i): input
 - arg2 (-p): output prefix
@@ -105,7 +105,7 @@ sh kmerDesigner.sh canSNPextractor/chromoII-genotypes-all-interest-canSNPs.tsv c
 ```
 cat kmerDesigner/chromoI-schema.db kmerDesigner/chromoII-schema.db > kmerDesigner/chromoI-II-schema.db
 ```
-## hansel
+## Program hansel
 ### arguments
 - arg1 (-s): input scheme
 - arg2 (--vv): verbosity level
