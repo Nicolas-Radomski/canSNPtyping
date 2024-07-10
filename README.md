@@ -107,7 +107,7 @@ cat kmerDesigner/chromoI-schema.db kmerDesigner/chromoII-schema.db > kmerDesigne
 ```
 ## Program hansel
 ### arguments
-- arg1 (-s): input scheme
+- arg1 (-s): input schema
 - arg2 (--vv): verbosity level
 - arg3 (-t): threads
 - arg4 (-o): typing output
@@ -221,7 +221,7 @@ not2.2	2101069	G	A
 not2.2	2106119	T	C
 not2.2	2106619	T	C
 ```
-## canSNP scheme organized in the form of kmers (kmerDesigner/chromoI-schema.db)
+## canSNP schema organized in the form of kmers (kmerDesigner/chromoI-schema.db)
 ```
 Genotype	SNP Location	Positive Base	Negative Base
 >10186337-1
