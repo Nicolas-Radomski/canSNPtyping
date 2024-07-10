@@ -1,7 +1,7 @@
 $${\color{red}Source \space codes \space will \space be \space provided \space after \space publication \space in  \space a \space peer \space reviewed \space journal}$$
 
 # Usage
-The repository canSNPtyping provides Python (recommended version 3.12) or Bash (tested with Ubuntu 20.04) scripts called dispersedSNPselector, canSNPextractor and kmerDesigner to build schemes of canonical single-nucleotide polymorphisms (canSNPs) based on feht output and compatible with Hansel input.
+The repository canSNPtyping provides Python (recommended version 3.12) or Bash (tested with Ubuntu 20.04) scripts called dispersedSNPselector, canSNPextractor and kmerDesigner to build schemes of canonical single-nucleotide polymorphisms (canSNPs) based on feht output and compatible with hansel input.
 - dispersedSNPselector: exclusion of SNP hotspots
 - canSNPextractor: extraction of canSNPs
 - kmerDesigner: design of kmers harboring selected canSNPs
