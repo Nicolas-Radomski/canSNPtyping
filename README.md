@@ -5,33 +5,34 @@ The repository canSNPtyping provides Python (recommended version 3.12) or Bash (
 - dispersedSNPselector: exclusion of SNP hotspots
 - canSNPextractor: extraction of canSNPs
 - kmerDesigner: design of kmers harboring selected canSNPs
-# Workflow dependencies
+# Case study
+The example below aims at building schemes of canSNPs for Brucella chromosomes I (reference: AE014291.4) and/or II (reference: AE014292.2).
+# Background
+## Workflow dependencies
 The workflow is adapted from recommendations of the hansel tool and implies tools below (https://bio-hansel.readthedocs.io/en/readthedocs/user-docs/genotyping_schemas.html#creating-a-genotyping-schema).
 - snippy: variant calling (https://github.com/tseemann/snippy)
 - IQtree: phylogenomic inference (http://www.iqtree.org/)
 - iTOL: rooted phylogenomic inference (https://itol.embl.de/)
 - feht: exhaustive identification of SNPs specific of defined groups (https://github.com/chadlaing/feht)
 - hansel: canSNP typing based on schemes organized in the form of kmers (https://github.com/phac-nml/biohansel)
-# Case study
-The example below aims at building schemes of canSNPs for Brucella chromosomes I (reference: AE014291.4) and/or II (reference: AE014292.2).
-# Recommended Python environment
-## Download Miniconda for Ubuntu 20.04
+## Recommended Python environment
+### Download Miniconda for Ubuntu 20.04
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O /opt/miniconda-installer.sh
-## Install Miniconda
+### Install Miniconda
 bash /opt/miniconda-installer.sh
-## Update Conda
+### Update Conda
 conda update --all
-## Create an environment
+### Create an environment
 conda create --name py312 python=3.12
-## Activate the environment
+### Activate the environment
 conda activate py312
-## Check the Python version
+### Check the Python version
 python --version
-## Install a Python library
+### Install a Python library
 conda install pandas
-## Check the list of Python libraries
+### Check the list of Python libraries
 conda list
-## Desactivate the environment after use
+### Desactivate the environment after use
 conda deactivate
 # Examples of commands
 ## Program dispersedSNPselector
