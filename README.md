@@ -82,7 +82,7 @@ python kmerDesigner.py -i canSNPextractor/chromoII-genotypes-all-interest-canSNP
 sh kmerDesigner.sh canSNPextractor/chromoI-genotypes-all-interest-canSNPs.tsv chromoI 4 16 AE014291.4 10000000
 sh kmerDesigner.sh canSNPextractor/chromoII-genotypes-all-interest-canSNPs.tsv chromoII 4 16 AE014292.2 20000000
 ```
-## merging of schenes from chromosomes I and II
+## merging of schemes from chromosomes I and II
 ```
 cat kmerDesigner/chromoI-schema.db kmerDesigner/chromoII-schema.db > kmerDesigner/chromoI-II-schema.db
 ```
