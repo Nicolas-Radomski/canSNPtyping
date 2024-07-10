@@ -29,7 +29,7 @@ python --version
 conda install pandas
 ## Check the list of Python libraries
 conda list
-## Desactivate the environment if needed
+## Desactivate the environment after use
 conda deactivate
 # Case study
 The example below aims at building schemes of canSNPs for Brucella chromosomes I (reference: AE014291.4) and/or II (reference: AE014292.2).
