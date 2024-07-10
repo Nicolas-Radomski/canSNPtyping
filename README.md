@@ -12,6 +12,8 @@ The workflow is adapted from recommendations of the hansel tool and implies tool
 - iTOL: rooted phylogenomic inference (https://itol.embl.de/)
 - feht: exhaustive identification of SNPs specific of defined groups (https://github.com/chadlaing/feht)
 - hansel: canSNP typing based on schemes organized in the form of kmers (https://github.com/phac-nml/biohansel)
+# Case study
+The example below aims at building schemes of canSNPs for Brucella chromosomes I (reference: AE014291.4) and/or II (reference: AE014292.2).
 # Recommended Python environment
 ## Download Miniconda for Ubuntu 20.04
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O /opt/miniconda-installer.sh
@@ -31,8 +33,6 @@ conda install pandas
 conda list
 ## Desactivate the environment after use
 conda deactivate
-# Case study
-The example below aims at building schemes of canSNPs for Brucella chromosomes I (reference: AE014291.4) and/or II (reference: AE014292.2).
 # Examples of commands
 ## dispersedSNPselector
 ### arguments
