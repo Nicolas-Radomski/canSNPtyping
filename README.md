@@ -117,7 +117,7 @@ cat kmerDesigner/chromoI-schema.db kmerDesigner/chromoII-schema.db > kmerDesigne
 ### run with Bash
 ```
 hansel -s kmerDesigner/chromoI-schema.db -vv -t 20 -o hansel/chromoI-results-fastq.tab -O hansel/chromoI-match_results-fastq.tab -D fastq
-hansel -s kmerDesigner/chromoI-schema.db -vv -t 20 -o hansel/chromoI-results-fastq.tab -O hansel/chromoI-match_results-fastq.tab -D fastq
+hansel -s kmerDesigner/chromoII-schema.db -vv -t 20 -o hansel/chromoII-results-fastq.tab -O hansel/chromoII-match_results-fastq.tab -D fastq
 hansel -s kmerDesigner/chromoI-II-schema.db -vv --threads 20 -o hansel/chromoI-II-results-fastq.tab -O hansel/chromoI-II-match_results-fastq.tab -D fastq
 ```
 # Expected input and output
