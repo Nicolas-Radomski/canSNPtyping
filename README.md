@@ -58,7 +58,7 @@ sh dispersedSNPselector.sh snippy/chromoII.tab chromoII 1207381 16
 - arg2 (-d): input SNPs
 - arg3 (-f): specific SNPs
 - arg4 (-m): SNP mode
-### run with Bash
+### run
 ```
 feht -i feht/metadata.tsv -d dispersedSNPselector/chromoI-SNPs-retained-trimmed-profiles.tsv -f 1 -m snp > feht/chromoI-cansnps.tsv
 feht -i feht/metadata.tsv -d dispersedSNPselector/chromoII-SNPs-retained-trimmed-profiles.tsv -f 1 -m snp > feht/chromoII-cansnps.tsv
@@ -114,7 +114,7 @@ cat kmerDesigner/chromoI-schema.db kmerDesigner/chromoII-schema.db > kmerDesigne
 - arg4 (-o): typing output
 - arg5 (-O): match output
 - arg6 (-D): input format
-### run with Bash
+### run
 ```
 hansel -s kmerDesigner/chromoI-schema.db -vv -t 20 -o hansel/chromoI-results-fastq.tab -O hansel/chromoI-match_results-fastq.tab -D fastq
 hansel -s kmerDesigner/chromoII-schema.db -vv -t 20 -o hansel/chromoII-results-fastq.tab -O hansel/chromoII-match_results-fastq.tab -D fastq
