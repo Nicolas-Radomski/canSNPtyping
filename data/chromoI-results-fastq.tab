@@ -1,21 +1,21 @@
 sample	scheme	scheme_version	subtype	all_subtypes	kmers_matching_subtype	are_subtypes_consistent	inconsistent_subtypes	n_kmers_matching_all	n_kmers_matching_all_expected	n_kmers_matching_positive	n_kmers_matching_positive_expected	n_kmers_matching_subtype	n_kmers_matching_subtype_expected	file_path	avg_kmer_coverage	qc_status	qc_message
-SRR8550507	kmerDesigner/chromoI-schema.db		1.2.2	1; 1.2; 1.2.2	1.2.2	True		36	36	11	12	3	4	['/wd/fastq/SRR8550507_1.fastq.gz', '/wd/fastq/SRR8550507_2.fastq.gz']	50.472	FAIL	"FAIL: Mixed subtype; the positive and negative kmers were found for the same target site 11048125 for subtype ""1.2.2""."
-SRR8550491	kmerDesigner/chromoI-schema.db		1.2.2	1; 1.2; 1.2.2	1.2.2	True		36	36	11	12	3	4	['/wd/fastq/SRR8550491_1.fastq.gz', '/wd/fastq/SRR8550491_2.fastq.gz']	50.350	FAIL	"FAIL: Mixed subtype; the positive and negative kmers were found for the same target site 11048125 for subtype ""1.2.2""."
-SRR8550474	kmerDesigner/chromoI-schema.db		1.2.2	1; 1.2; 1.2.2	1.2.2	True		36	36	11	12	3	4	['/wd/fastq/SRR8550474_1.fastq.gz', '/wd/fastq/SRR8550474_2.fastq.gz']	34.703	FAIL	"FAIL: Mixed subtype; the positive and negative kmers were found for the same target site 11048125 for subtype ""1.2.2""."
-SRR8550496	kmerDesigner/chromoI-schema.db		1.2.2	1; 1.2; 1.2.2	1.2.2	True		36	36	11	12	3	4	['/wd/fastq/SRR8550496_1.fastq.gz', '/wd/fastq/SRR8550496_2.fastq.gz']	63.154	FAIL	"FAIL: Mixed subtype; the positive and negative kmers were found for the same target site 11048125 for subtype ""1.2.2""."
-SRR8550514	kmerDesigner/chromoI-schema.db		1.2.1	1; 1.2; 1.2.1	1.2.1	True		36	36	12	12	4	4	['/wd/fastq/SRR8550514_1.fastq.gz', '/wd/fastq/SRR8550514_2.fastq.gz']	68.368	FAIL	"FAIL: Mixed subtype; the positive and negative kmers were found for the same target site 11048125 for subtype ""1.2.1""."
-SRR5207315	kmerDesigner/chromoI-schema.db		1.1	1; 1.1	1.1	True		36	36	8	8	4	4	['/wd/fastq/SRR5207315_1.fastq.gz', '/wd/fastq/SRR5207315_2.fastq.gz']	77.237	PASS	
-SRR5207310	kmerDesigner/chromoI-schema.db		1.1	1; 1.1	1.1	True		36	36	8	8	4	4	['/wd/fastq/SRR5207310_1.fastq.gz', '/wd/fastq/SRR5207310_2.fastq.gz']	68.250	PASS	
-SRR5207320	kmerDesigner/chromoI-schema.db		1.1	1; 1.1	1.1	True		36	36	8	8	4	4	['/wd/fastq/SRR5207320_1.fastq.gz', '/wd/fastq/SRR5207320_2.fastq.gz']	59.795	PASS	
-SRR5207328	kmerDesigner/chromoI-schema.db		1.1	1; 1.1	1.1	True		36	36	8	8	4	4	['/wd/fastq/SRR5207328_1.fastq.gz', '/wd/fastq/SRR5207328_2.fastq.gz']	93.108	PASS	
-SRR5207321	kmerDesigner/chromoI-schema.db		1.1	1; 1.1	1.1	True		36	36	8	8	4	4	['/wd/fastq/SRR5207321_1.fastq.gz', '/wd/fastq/SRR5207321_2.fastq.gz']	69.611	PASS	
-SRR6957988	kmerDesigner/chromoI-schema.db		2.2	2; 2.2	2.2	True		35	36	8	8	4	4	['/wd/fastq/SRR6957988_1.fastq.gz', '/wd/fastq/SRR6957988_2.fastq.gz']	95.395	PASS	
-SRR6958007	kmerDesigner/chromoI-schema.db		2.2	2; 2.2	2.2	True		35	36	8	8	4	4	['/wd/fastq/SRR6958007_1.fastq.gz', '/wd/fastq/SRR6958007_2.fastq.gz']	73.306	PASS	
-SRR6958009	kmerDesigner/chromoI-schema.db		2.2	2; 2.2	2.2	True		35	36	8	8	4	4	['/wd/fastq/SRR6958009_1.fastq.gz', '/wd/fastq/SRR6958009_2.fastq.gz']	51.324	PASS	
-SRR6957952	kmerDesigner/chromoI-schema.db		2.2	2; 2.2	2.2	True		35	36	8	8	4	4	['/wd/fastq/SRR6957952_1.fastq.gz', '/wd/fastq/SRR6957952_2.fastq.gz']	39.333	PASS	
-SRR6958002	kmerDesigner/chromoI-schema.db		2.2	2; 2.2	2.2	True		35	36	8	8	4	4	['/wd/fastq/SRR6958002_1.fastq.gz', '/wd/fastq/SRR6958002_2.fastq.gz']	50.103	PASS	
-SRR8423077	kmerDesigner/chromoI-schema.db		2.1.2	2; 2.1; 2.1.2	2.1.2	True		36	36	12	12	4	4	['/wd/fastq/SRR8423077_1.fastq.gz', '/wd/fastq/SRR8423077_2.fastq.gz']	180.270	PASS	
-SRR1371373	kmerDesigner/chromoI-schema.db		2.1.1	2; 2.1; 2.1.1	2.1.1	True		35	36	12	12	4	4	['/wd/fastq/SRR1371373_1.fastq.gz', '/wd/fastq/SRR1371373_2.fastq.gz']	117.028	PASS	
-SRR1371384	kmerDesigner/chromoI-schema.db		2.1.1	2; 2.1; 2.1.1	2.1.1	True		36	36	12	12	4	4	['/wd/fastq/SRR1371384_1.fastq.gz', '/wd/fastq/SRR1371384_2.fastq.gz']	126.000	PASS	
-SRR1371301	kmerDesigner/chromoI-schema.db		2.1.1	2; 2.1; 2.1.1	2.1.1	True		36	36	12	12	4	4	['/wd/fastq/SRR1371301_1.fastq.gz', '/wd/fastq/SRR1371301_2.fastq.gz']	100.892	PASS	
-SRR1371327	kmerDesigner/chromoI-schema.db		2.1.1	2; 2.1; 2.1.1	2.1.1	True		36	36	12	12	4	4	['/wd/fastq/SRR1371327_1.fastq.gz', '/wd/fastq/SRR1371327_2.fastq.gz']	186.293	PASS	
+SRR8550507	kmerDesigner/python-fast-chromoI-schema.db		1.2.2	1; 1.2; 1.2.2	1.2.2	True		36	36	12	12	4	4	['/wd/fastq/SRR8550507_1.fastq.gz', '/wd/fastq/SRR8550507_2.fastq.gz']	49.946	PASS	
+SRR8550491	kmerDesigner/python-fast-chromoI-schema.db		1.2.2	1; 1.2; 1.2.2	1.2.2	True		36	36	12	12	4	4	['/wd/fastq/SRR8550491_1.fastq.gz', '/wd/fastq/SRR8550491_2.fastq.gz']	46.833	PASS	
+SRR8550474	kmerDesigner/python-fast-chromoI-schema.db		1.2.2	1; 1.2; 1.2.2	1.2.2	True		36	36	12	12	4	4	['/wd/fastq/SRR8550474_1.fastq.gz', '/wd/fastq/SRR8550474_2.fastq.gz']	37.103	PASS	
+SRR8550496	kmerDesigner/python-fast-chromoI-schema.db		1.2.2	1; 1.2; 1.2.2	1.2.2	True		36	36	12	12	4	4	['/wd/fastq/SRR8550496_1.fastq.gz', '/wd/fastq/SRR8550496_2.fastq.gz']	66.189	PASS	
+SRR8550514	kmerDesigner/python-fast-chromoI-schema.db		1.2.1	1; 1.2; 1.2.1	1.2.1	True		36	36	12	12	4	4	['/wd/fastq/SRR8550514_1.fastq.gz', '/wd/fastq/SRR8550514_2.fastq.gz']	64.675	PASS	
+SRR5207315	kmerDesigner/python-fast-chromoI-schema.db		1.1	1; 1.1	1.1	True		36	36	8	8	4	4	['/wd/fastq/SRR5207315_1.fastq.gz', '/wd/fastq/SRR5207315_2.fastq.gz']	80.081	PASS	
+SRR5207310	kmerDesigner/python-fast-chromoI-schema.db		1.1	1; 1.1	1.1	True		36	36	8	8	4	4	['/wd/fastq/SRR5207310_1.fastq.gz', '/wd/fastq/SRR5207310_2.fastq.gz']	64.054	PASS	
+SRR5207320	kmerDesigner/python-fast-chromoI-schema.db		1.1	1; 1.1	1.1	True		36	36	8	8	4	4	['/wd/fastq/SRR5207320_1.fastq.gz', '/wd/fastq/SRR5207320_2.fastq.gz']	63.306	PASS	
+SRR5207328	kmerDesigner/python-fast-chromoI-schema.db		1.1	1; 1.1	1.1	True		36	36	8	8	4	4	['/wd/fastq/SRR5207328_1.fastq.gz', '/wd/fastq/SRR5207328_2.fastq.gz']	83.054	PASS	
+SRR5207321	kmerDesigner/python-fast-chromoI-schema.db		1.1	1; 1.1	1.1	True		36	36	8	8	4	4	['/wd/fastq/SRR5207321_1.fastq.gz', '/wd/fastq/SRR5207321_2.fastq.gz']	66.730	PASS	
+SRR6957988	kmerDesigner/python-fast-chromoI-schema.db		2.2	2; 2.2	2.2	True		36	36	8	8	4	4	['/wd/fastq/SRR6957988_1.fastq.gz', '/wd/fastq/SRR6957988_2.fastq.gz']	95.103	PASS	
+SRR6958007	kmerDesigner/python-fast-chromoI-schema.db		2.2	2; 2.2	2.2	True		36	36	8	8	4	4	['/wd/fastq/SRR6958007_2.fastq.gz', '/wd/fastq/SRR6958007_1.fastq.gz']	63.220	PASS	
+SRR6958009	kmerDesigner/python-fast-chromoI-schema.db		2.2	2; 2.2	2.2	True		36	36	8	8	4	4	['/wd/fastq/SRR6958009_1.fastq.gz', '/wd/fastq/SRR6958009_2.fastq.gz']	49.703	PASS	
+SRR6957952	kmerDesigner/python-fast-chromoI-schema.db		2.2	2; 2.2	2.2	True		36	36	8	8	4	4	['/wd/fastq/SRR6957952_1.fastq.gz', '/wd/fastq/SRR6957952_2.fastq.gz']	36.757	PASS	
+SRR6958002	kmerDesigner/python-fast-chromoI-schema.db		2.2	2; 2.2	2.2	True		36	36	8	8	4	4	['/wd/fastq/SRR6958002_2.fastq.gz', '/wd/fastq/SRR6958002_1.fastq.gz']	53.359	PASS	
+SRR8423077	kmerDesigner/python-fast-chromoI-schema.db		2.1.2	2; 2.1; 2.1.2	2.1.2	True		36	36	12	12	4	4	['/wd/fastq/SRR8423077_1.fastq.gz', '/wd/fastq/SRR8423077_2.fastq.gz']	173.795	PASS	
+SRR1371373	kmerDesigner/python-fast-chromoI-schema.db		2.1.1	2; 2.1; 2.1.1	2.1.1	True		36	36	12	12	4	4	['/wd/fastq/SRR1371373_1.fastq.gz', '/wd/fastq/SRR1371373_2.fastq.gz']	117.763	PASS	
+SRR1371384	kmerDesigner/python-fast-chromoI-schema.db		2.1.1	2; 2.1; 2.1.1	2.1.1	True		36	36	12	12	4	4	['/wd/fastq/SRR1371384_1.fastq.gz', '/wd/fastq/SRR1371384_2.fastq.gz']	123.111	PASS	
+SRR1371301	kmerDesigner/python-fast-chromoI-schema.db		2.1.1	2; 2.1; 2.1.1	2.1.1	True		36	36	12	12	4	4	['/wd/fastq/SRR1371301_1.fastq.gz', '/wd/fastq/SRR1371301_2.fastq.gz']	99.444	PASS	
+SRR1371327	kmerDesigner/python-fast-chromoI-schema.db		2.1.1	2; 2.1; 2.1.1	2.1.1	True		36	36	12	12	4	4	['/wd/fastq/SRR1371327_1.fastq.gz', '/wd/fastq/SRR1371327_2.fastq.gz']	168.605	PASS	
