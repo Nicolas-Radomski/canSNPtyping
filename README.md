@@ -1,5 +1,3 @@
-$${\color{red}Source \space codes \space will \space be \space provided \space after \space publication \space in  \space a \space peer \space reviewed \space journal}$$
-
 # Usage
 The repository canSNPtyping provides Python (recommended version 3.12) or Bash (tested with Ubuntu 20.04) scripts called dispersedSNPselector, canSNPextractor and kmerDesigner to build schemes of canonical single-nucleotide polymorphisms (canSNPs) based on feht output and compatible with hansel input.
 - dispersedSNPselector: exclusion of SNP hotspots
@@ -15,33 +13,49 @@ The workflow is adapted from recommendations of the hansel tool and implies tool
 - iTOL: rooted phylogenomic inference (https://itol.embl.de/)
 - feht: exhaustive identification of SNPs specific of defined groups (https://github.com/chadlaing/feht)
 - hansel: canSNP typing based on schemes organized in the form of kmers (https://github.com/phac-nml/biohansel)
-## Recommended Python environment
-### Download Miniconda for Ubuntu 20.04
-wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O /opt/miniconda-installer.sh
-### Install Miniconda
-bash /opt/miniconda-installer.sh
-### Update Conda
-conda update --all
-### Create an environment
-conda create --name py312 python=3.12
-### Activate the environment
-conda activate py312
-### Check the Python version
-python --version
-### Install a Python library
-conda install pandas
-### Check the list of Python libraries
-conda list
-### Desactivate the environment after use
-conda deactivate
+## Recommended python environment
+### update
+```
+sudo apt update -y
+sudo apt upgrade -y
+```
+### install Ubuntu packages
+```
+sudo apt install -y software-properties-common build-essential libffi-dev libssl-dev zlib1g-dev libncurses5-dev libncursesw5-dev libreadline-dev libsqlite3-dev libgdbm-dev libdb5.3-dev libbz2-dev libexpat1-dev liblzma-dev libffi-dev libssl-dev
+```
+### install python 3.12
+```
+sudo add-apt-repository ppa:deadsnakes/ppa
+sudo apt update
+sudo apt install python3.12
+```
+### install pip 3.12
+```
+sudo apt install python3.12-distutils 
+wget https://bootstrap.pypa.io/get-pip.py 
+sudo python3.12 get-pip.py 
+```
+### install python libraries
+```
+# pip3.12 install pandas==2.2.2
+# pip3.12 install numpy==1.26.4
+```
+## Recommended docker environment
+```
+docker pull nicolasradomski/dispersedsnpselector
+docker pull nicolasradomski/cansnpextractor
+docker pull nicolasradomski/kmerdesigner
+docker pull nicolasradomski/kmerdesignerfast
+```
 # Examples of commands
 ## Program dispersedSNPselector
 ### arguments
 - arg1 (-i): input
+- optional python arg (-o): output path
 - arg2 (-p): output prefix
 - arg3 (-c): chromosome size
 - arg4 (-n): size of kmer sequences up and downstream of canSNPs
-- arg5 (-nc): no checking of the versions of Python libraries
+- optional python arg (-nc): no checking of the versions of Python libraries
 ### run with Python
 ```
 python dispersedSNPselector.py -i snippy/chromoI.tab -p chromoI -c 2107794 -n 16 -nc
@@ -51,6 +65,11 @@ python dispersedSNPselector.py -i snippy/chromoII.tab -p chromoII -c 1207381 -n 
 ```
 sh dispersedSNPselector.sh snippy/chromoI.tab chromoI 2107794 16
 sh dispersedSNPselector.sh snippy/chromoII.tab chromoII 1207381 16
+```
+### run with Docker
+```
+docker run --rm --name nicolas -u $(id -u):$(id -g) -v $(pwd):/wd nicolasradomski/dispersedsnpselector -i snippy/chromoI.tab -p chromoI -c 2107794 -n 16
+docker run --rm --name nicolas -u $(id -u):$(id -g) -v $(pwd):/wd nicolasradomski/dispersedsnpselector -i snippy/chromoII.tab -p chromoII -c 1207381 -n 16
 ```
 ## Program feht
 ### arguments
@@ -66,8 +85,9 @@ feht -i feht/metadata.tsv -d dispersedSNPselector/chromoII-SNPs-retained-trimmed
 ## Program canSNPextractor
 ### arguments
 - arg1 (-i): input
+- optional python arg (-o): output path
 - arg2 (-p): output prefix
-- arg3 (-nc): no checking of the versions of Python libraries
+- optional python arg (-nc): no checking of the versions of Python libraries
 ### run with Python
 ```
 python canSNPextractor.py -i feht/chromoI-cansnps.tsv -p chromoI -nc
@@ -78,15 +98,21 @@ python canSNPextractor.py -i feht/chromoII-cansnps.tsv -p chromoII -nc
 sh canSNPextractor.sh feht/chromoI-cansnps.tsv chromoI
 sh canSNPextractor.sh feht/chromoII-cansnps.tsv chromoII
 ```
+### run with Docker
+```
+docker run --rm --name nicolas -u $(id -u):$(id -g) -v $(pwd):/wd nicolasradomski/cansnpextractor -i feht/chromoI-cansnps.tsv -p chromoI
+docker run --rm --name nicolas -u $(id -u):$(id -g) -v $(pwd):/wd nicolasradomski/cansnpextractor -i feht/chromoII-cansnps.tsv -p chromoII
+```
 ## Program kmerDesigner
 ### arguments
 - arg1 (-i): input
+- optional python arg (-o): output path
 - arg2 (-p): output prefix
 - arg3 (-s): randomly selected positive genotypes per node of interest
 - arg4 (-n): size of kmer sequences up and downstream of canSNPs
 - arg5 (-f or -g): chromosome fasta file path or chromosome GenBank identifier
 - arg6 (-a): additional digit to position to merge schemes from different chromosomes
-- arg7 (-nc): no checking of the versions of Python libraries
+- optional python arg (-nc): no checking of the versions of Python libraries
 ### run with Python dependently of a reference fasta file
 ```
 python kmerDesignerFast.py -i canSNPextractor/chromoI-genotypes-all-interest-canSNPs.tsv -p chromoI -s 4 -n 16 -f reference/AE014291.4.fasta -a 10000000 -nc
@@ -101,6 +127,16 @@ python kmerDesigner.py -i canSNPextractor/chromoII-genotypes-all-interest-canSNP
 ```
 sh kmerDesigner.sh canSNPextractor/chromoI-genotypes-all-interest-canSNPs.tsv chromoI 4 16 AE014291.4 10000000
 sh kmerDesigner.sh canSNPextractor/chromoII-genotypes-all-interest-canSNPs.tsv chromoII 4 16 AE014292.2 20000000
+```
+### run with Docker dependently of a reference GenBank identifier
+```
+docker run --rm --name nicolas -u $(id -u):$(id -g) -v $(pwd):/wd nicolasradomski/kmerdesigner -i docker-cansnpextractor/chromoI-genotypes-all-interest-canSNPs.tsv -p chromoI -s 4 -n 16 -g AE014291.4 -a 10000000
+docker run --rm --name nicolas -u $(id -u):$(id -g) -v $(pwd):/wd nicolasradomski/kmerdesigner -i docker-cansnpextractor/chromoII-genotypes-all-interest-canSNPs.tsv -p chromoII -s 4 -n 16 -g AE014292.2 -a 20000000
+```
+### run with Docker dependently of a reference fasta file
+```
+docker run --rm --name nicolas -u $(id -u):$(id -g) -v $(pwd):/wd nicolasradomski/kmerdesignerfast -i docker-cansnpextractor/chromoI-genotypes-all-interest-canSNPs.tsv -p chromoI -s 4 -n 16 -f reference/AE014291.4.fasta -a 10000000
+docker run --rm --name nicolas -u $(id -u):$(id -g) -v $(pwd):/wd nicolasradomski/kmerdesignerfast -i docker-cansnpextractor/chromoII-genotypes-all-interest-canSNPs.tsv -p chromoII -s 4 -n 16 -f reference/AE014292.2.fasta -a 20000000
 ```
 ## Merging of schemes from chromosomes I and II
 ```
@@ -278,6 +314,10 @@ SRR5207310	suis biovar 1	1; 1.1		1; 1.1		1; 1.1		1; 1.1
 Labbé G, Kruczkiewicz P, Robertson J, Mabon P, Schonfeld J, Kein D, Rankin MA, Gopez M, Hole D, Son D, Knox N, Laing CR, Bessonov K, Taboada EN, Yoshida C, Ziebell K, Nichani A, Johnson RP, Van Domselaar G, Nash JHE. Rapid and accurate SNP genotyping of clonal bacterial pathogens with BioHansel. Microb Genom. 2021 Sep;7(9):000651. doi: 10.1099/mgen.0.000651. PMID: 34554082; PMCID: PMC8715432.
 # Please site
 https://github.com/Nicolas-Radomski/canSNPtyping
+https://hub.docker.com/r/nicolasradomski/dispersedsnpselector
+https://hub.docker.com/r/nicolasradomski/cansnpextractor
+https://hub.docker.com/r/nicolasradomski/kmerdesigner
+https://hub.docker.com/r/nicolasradomski/kmerdesignerfast
 # Acknowledgment
 The GENPAT-IZSAM Staff for our discussions aiming at designing workflows, especially Iolanda Mangone and Pierluigi Castelli for our discussions about the Python syntax.
 # Author
