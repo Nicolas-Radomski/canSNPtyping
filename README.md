@@ -103,7 +103,7 @@ sh canSNPextractor.sh feht/chromoII-cansnps.tsv chromoII
 docker run --rm --name nicolas -u $(id -u):$(id -g) -v $(pwd):/wd nicolasradomski/cansnpextractor -i feht/chromoI-cansnps.tsv -p chromoI
 docker run --rm --name nicolas -u $(id -u):$(id -g) -v $(pwd):/wd nicolasradomski/cansnpextractor -i feht/chromoII-cansnps.tsv -p chromoII
 ```
-## Program kmerDesigner
+## Programs kmerDesigner or kmerDesignerFast
 ### arguments
 - arg1 (-i): input path of canSNPs
 - optional python arg (-o): output path
@@ -113,11 +113,6 @@ docker run --rm --name nicolas -u $(id -u):$(id -g) -v $(pwd):/wd nicolasradomsk
 - arg5 (-f or -g): chromosome fasta file path or chromosome GenBank identifier
 - arg6 (-a): additional digit to positions in order to merge schemes from different chromosomes
 - optional python arg (-nc): no checking of versions of Python and packages
-### run with Python dependently of a reference fasta file
-```
-python kmerDesignerFast.py -i canSNPextractor/chromoI-genotypes-all-interest-canSNPs.tsv -p chromoI -s 4 -n 16 -f reference/AE014291.4.fasta -a 10000000 -nc
-python kmerDesignerFast.py -i canSNPextractor/chromoII-genotypes-all-interest-canSNPs.tsv -p chromoII -s 4 -n 16 -f reference/AE014292.2.fasta -a 20000000 -nc
-```
 ### run with Python dependently of a reference GenBank identifier
 ```
 python kmerDesigner.py -i canSNPextractor/chromoI-genotypes-all-interest-canSNPs.tsv -p chromoI -s 4 -n 16 -g AE014291.4 -a 10000000 -nc
@@ -133,7 +128,13 @@ sh kmerDesigner.sh canSNPextractor/chromoII-genotypes-all-interest-canSNPs.tsv c
 docker run --rm --name nicolas -u $(id -u):$(id -g) -v $(pwd):/wd nicolasradomski/kmerdesigner -i canSNPextractor/chromoI-genotypes-all-interest-canSNPs.tsv -p chromoI -s 4 -n 16 -g AE014291.4 -a 10000000
 docker run --rm --name nicolas -u $(id -u):$(id -g) -v $(pwd):/wd nicolasradomski/kmerdesigner -i canSNPextractor/chromoII-genotypes-all-interest-canSNPs.tsv -p chromoII -s 4 -n 16 -g AE014292.2 -a 20000000
 ```
-### run with Docker dependently of a reference fasta file
+### run with Python dependently of a reference fasta file (fast recommended version)
+```
+python kmerDesignerFast.py -i canSNPextractor/chromoI-genotypes-all-interest-canSNPs.tsv -p chromoI -s 4 -n 16 -f reference/AE014291.4.fasta -a 10000000 -nc
+python kmerDesignerFast.py -i canSNPextractor/chromoII-genotypes-all-interest-canSNPs.tsv -p chromoII -s 4 -n 16 -f reference/AE014292.2.fasta -a 20000000 -nc
+```
+
+### run with Docker dependently of a reference fasta file (fast recommended version)
 ```
 docker run --rm --name nicolas -u $(id -u):$(id -g) -v $(pwd):/wd nicolasradomski/kmerdesignerfast -i canSNPextractor/chromoI-genotypes-all-interest-canSNPs.tsv -p chromoI -s 4 -n 16 -f reference/AE014291.4.fasta -a 10000000
 docker run --rm --name nicolas -u $(id -u):$(id -g) -v $(pwd):/wd nicolasradomski/kmerdesignerfast -i canSNPextractor/chromoII-genotypes-all-interest-canSNPs.tsv -p chromoII -s 4 -n 16 -f reference/AE014292.2.fasta -a 20000000
