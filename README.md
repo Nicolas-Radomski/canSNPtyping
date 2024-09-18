@@ -221,7 +221,7 @@ SRR6958007	2	2.2	NA
 SRR6958009	2	2.2	NA
 SRR6957952	2	2.2	NA
 ```
-## Tables of all specific SNPs of each defined groups (feht/chromoI-cansnps.tsv)
+## Tables of all specific SNPs for each pairwise comparison of defined groups of interest (feht/chromoI-cansnps.tsv)
 ```
 [#-
 Group1 category: Level_2 Group1: 2.1.1
