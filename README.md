@@ -50,7 +50,7 @@ docker pull nicolasradomski/kmerdesignerfast
 # Examples of commands
 ## Program dispersedSNPselector
 ### arguments
-- arg1 (-i): input
+- arg1 (-i): input path of SNP profiles
 - optional python arg (-o): output path
 - arg2 (-p): output prefix
 - arg3 (-c): chromosome size
@@ -73,7 +73,7 @@ docker run --rm --name nicolas -u $(id -u):$(id -g) -v $(pwd):/wd nicolasradomsk
 ```
 ## Program feht
 ### arguments
-- arg1 (-i): input metadata
+- arg1 (-i): input path of metadata
 - arg2 (-d): input SNPs
 - arg3 (-f): specific SNPs
 - arg4 (-m): SNP mode
@@ -84,7 +84,7 @@ feht -i feht/metadata.tsv -d dispersedSNPselector/chromoII-SNPs-retained-trimmed
 ```
 ## Program canSNPextractor
 ### arguments
-- arg1 (-i): input
+- arg1 (-i): input path of SNP clusters
 - optional python arg (-o): output path
 - arg2 (-p): output prefix
 - optional python arg (-nc): no checking of versions of Python and packages
@@ -105,7 +105,7 @@ docker run --rm --name nicolas -u $(id -u):$(id -g) -v $(pwd):/wd nicolasradomsk
 ```
 ## Program kmerDesigner
 ### arguments
-- arg1 (-i): input
+- arg1 (-i): input path of canSNPs
 - optional python arg (-o): output path
 - arg2 (-p): output prefix
 - arg3 (-s): randomly selected positive genotypes per node of interest
@@ -144,7 +144,7 @@ cat kmerDesigner/chromoI-schema.db kmerDesigner/chromoII-schema.db > kmerDesigne
 ```
 ## Program hansel
 ### arguments
-- arg1 (-s): input schema
+- arg1 (-s): input path of schema
 - arg2 (--vv): verbosity level
 - arg3 (-t): threads
 - arg4 (-o): typing output
