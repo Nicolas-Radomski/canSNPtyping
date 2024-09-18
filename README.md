@@ -111,7 +111,7 @@ docker run --rm --name nicolas -u $(id -u):$(id -g) -v $(pwd):/wd nicolasradomsk
 - arg3 (-s): randomly selected positive genotypes per node of interest
 - arg4 (-n): size of kmer sequences up and downstream of canSNPs
 - arg5 (-f or -g): chromosome fasta file path or chromosome GenBank identifier
-- arg6 (-a): additional digit to position to merge schemes from different chromosomes
+- arg6 (-a): additional digit to positions in order to merge schemes from different chromosomes
 - optional python arg (-nc): no checking of versions of Python and packages
 ### run with Python dependently of a reference fasta file
 ```
