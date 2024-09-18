@@ -130,13 +130,13 @@ sh kmerDesigner.sh canSNPextractor/chromoII-genotypes-all-interest-canSNPs.tsv c
 ```
 ### run with Docker dependently of a reference GenBank identifier
 ```
-docker run --rm --name nicolas -u $(id -u):$(id -g) -v $(pwd):/wd nicolasradomski/kmerdesigner -i docker-cansnpextractor/chromoI-genotypes-all-interest-canSNPs.tsv -p chromoI -s 4 -n 16 -g AE014291.4 -a 10000000
-docker run --rm --name nicolas -u $(id -u):$(id -g) -v $(pwd):/wd nicolasradomski/kmerdesigner -i docker-cansnpextractor/chromoII-genotypes-all-interest-canSNPs.tsv -p chromoII -s 4 -n 16 -g AE014292.2 -a 20000000
+docker run --rm --name nicolas -u $(id -u):$(id -g) -v $(pwd):/wd nicolasradomski/kmerdesigner -i canSNPextractor/chromoI-genotypes-all-interest-canSNPs.tsv -p chromoI -s 4 -n 16 -g AE014291.4 -a 10000000
+docker run --rm --name nicolas -u $(id -u):$(id -g) -v $(pwd):/wd nicolasradomski/kmerdesigner -i canSNPextractor/chromoII-genotypes-all-interest-canSNPs.tsv -p chromoII -s 4 -n 16 -g AE014292.2 -a 20000000
 ```
 ### run with Docker dependently of a reference fasta file
 ```
-docker run --rm --name nicolas -u $(id -u):$(id -g) -v $(pwd):/wd nicolasradomski/kmerdesignerfast -i docker-cansnpextractor/chromoI-genotypes-all-interest-canSNPs.tsv -p chromoI -s 4 -n 16 -f reference/AE014291.4.fasta -a 10000000
-docker run --rm --name nicolas -u $(id -u):$(id -g) -v $(pwd):/wd nicolasradomski/kmerdesignerfast -i docker-cansnpextractor/chromoII-genotypes-all-interest-canSNPs.tsv -p chromoII -s 4 -n 16 -f reference/AE014292.2.fasta -a 20000000
+docker run --rm --name nicolas -u $(id -u):$(id -g) -v $(pwd):/wd nicolasradomski/kmerdesignerfast -i canSNPextractor/chromoI-genotypes-all-interest-canSNPs.tsv -p chromoI -s 4 -n 16 -f reference/AE014291.4.fasta -a 10000000
+docker run --rm --name nicolas -u $(id -u):$(id -g) -v $(pwd):/wd nicolasradomski/kmerdesignerfast -i canSNPextractor/chromoII-genotypes-all-interest-canSNPs.tsv -p chromoII -s 4 -n 16 -f reference/AE014292.2.fasta -a 20000000
 ```
 ## Merging of schemes from chromosomes I and II
 ```
