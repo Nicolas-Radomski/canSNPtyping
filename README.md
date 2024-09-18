@@ -55,7 +55,7 @@ docker pull nicolasradomski/kmerdesignerfast
 - arg2 (-p): output prefix
 - arg3 (-c): chromosome size
 - arg4 (-n): size of kmer sequences up and downstream of canSNPs
-- optional python arg (-nc): no checking of the versions of Python libraries
+- optional python arg (-nc): no checking of versions of Python and packages
 ### run with Python
 ```
 python dispersedSNPselector.py -i snippy/chromoI.tab -p chromoI -c 2107794 -n 16 -nc
@@ -87,7 +87,7 @@ feht -i feht/metadata.tsv -d dispersedSNPselector/chromoII-SNPs-retained-trimmed
 - arg1 (-i): input
 - optional python arg (-o): output path
 - arg2 (-p): output prefix
-- optional python arg (-nc): no checking of the versions of Python libraries
+- optional python arg (-nc): no checking of versions of Python and packages
 ### run with Python
 ```
 python canSNPextractor.py -i feht/chromoI-cansnps.tsv -p chromoI -nc
@@ -112,7 +112,7 @@ docker run --rm --name nicolas -u $(id -u):$(id -g) -v $(pwd):/wd nicolasradomsk
 - arg4 (-n): size of kmer sequences up and downstream of canSNPs
 - arg5 (-f or -g): chromosome fasta file path or chromosome GenBank identifier
 - arg6 (-a): additional digit to position to merge schemes from different chromosomes
-- optional python arg (-nc): no checking of the versions of Python libraries
+- optional python arg (-nc): no checking of versions of Python and packages
 ### run with Python dependently of a reference fasta file
 ```
 python kmerDesignerFast.py -i canSNPextractor/chromoI-genotypes-all-interest-canSNPs.tsv -p chromoI -s 4 -n 16 -f reference/AE014291.4.fasta -a 10000000 -nc
