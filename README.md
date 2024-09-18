@@ -7,7 +7,7 @@ The repository canSNPtyping provides Python (recommended version 3.12) or Bash (
 The example below aims at building schemes of canSNPs for Brucella chromosomes I (reference: AE014291.4) and/or II (reference: AE014292.2).
 # Background
 ## Workflow dependencies
-The workflow is adapted from recommendations of the hansel tool and implies tools below ([https://bio-hansel.readthedocs.io/en/readthedocs/user-docs/genotyping_schemas.html#creating-a-genotyping-schema](https://bio-hansel.readthedocs.io/en/readthedocs/user-docs/genotyping_schemes.html#creating-a-genotyping-scheme)).
+The workflow is adapted from recommendations of the hansel tool and implies tools below (https://bio-hansel.readthedocs.io/en/readthedocs/user-docs/genotyping_schemes.html#creating-a-genotyping-scheme).
 - snippy: variant calling (https://github.com/tseemann/snippy)
 - IQtree: phylogenomic inference (http://www.iqtree.org/)
 - iTOL: rooted phylogenomic inference (https://itol.embl.de/)
