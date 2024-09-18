@@ -147,8 +147,8 @@ cat kmerDesigner/chromoI-schema.db kmerDesigner/chromoII-schema.db > kmerDesigne
 - arg1 (-s): input path of schema
 - arg2 (--vv): verbosity level
 - arg3 (-t): threads
-- arg4 (-o): typing output
-- arg5 (-O): match output
+- arg4 (-o): typing output path
+- arg5 (-O): match output path
 - arg6 (-D): input format
 ### run
 ```
