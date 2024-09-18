@@ -1,8 +1,8 @@
 # Usage
-The repository canSNPtyping provides Python (recommended version 3.12) or Bash (tested with Ubuntu 20.04) scripts called dispersedSNPselector, canSNPextractor and kmerDesigner to build schemes of canonical single-nucleotide polymorphisms (canSNPs) based on feht output and compatible with hansel input.
+The repository canSNPtyping provides Python (recommended version 3.12) or Bash (tested with Ubuntu 20.04) scripts called dispersedSNPselector, canSNPextractor and kmerDesigner (recommended faster kmerDesignerFast) to build schemes of canonical single-nucleotide polymorphisms (canSNPs) based on feht output and compatible with hansel input.
 - dispersedSNPselector: exclusion of SNP hotspots
 - canSNPextractor: extraction of canSNPs
-- kmerDesigner: design of kmers harboring selected canSNPs
+- kmerDesigner or kmerDesignerFast: design of kmers harboring selected canSNPs
 # Case study
 The example below aims at building schemes of canSNPs for Brucella chromosomes I (reference: AE014291.4) and/or II (reference: AE014292.2).
 # Background
