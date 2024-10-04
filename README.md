@@ -261,7 +261,6 @@ not2.2	2106619	T	C
 ```
 ## canSNP schema organized in the form of kmers (kmerDesigner/chromoI-schema.db)
 ```
-Genotype	SNP Location	Positive Base	Negative Base
 >10186337-1
 CCGGGTCTCAAAGGCCGCCGTTTTCGGCCCACC
 >11329515-1
